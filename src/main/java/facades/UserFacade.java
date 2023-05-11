@@ -54,7 +54,7 @@ public class UserFacade {
 
     public UserDTO create(UserDTO udto){
         List<Role> roleList = udto.getRoleList().stream().map(r -> new Role(r.getRoleName()) ).collect(Collectors.toList());
-        User u = new User(udto.getUserName(), udto.getUserPass(),roleList);
+        User u = new User(udto.getUserName(), udto.getPassword(),roleList);
         EntityManager em = getEntityManager();
         try {
             em.getTransaction().begin();

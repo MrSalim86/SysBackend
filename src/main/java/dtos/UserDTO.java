@@ -9,12 +9,12 @@ import java.util.stream.Collectors;
 public class UserDTO {
 
     private String userName;
-    private String userPass;
+    private String password;
     private List<RoleDTO> roleList = new ArrayList<>();
 
     public UserDTO(User user){
         this.userName = user.getUserName();
-        this.userPass = user.getUserPass();
+        this.password = user.getUserPass();
         this.roleList = user.getRoleList().stream().map(r -> new RoleDTO(r)).collect(Collectors.toList());
 
     }
@@ -31,12 +31,12 @@ public class UserDTO {
         this.userName = userName;
     }
 
-    public String getUserPass() {
-        return userPass;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserPass(String userPass) {
-        this.userPass = userPass;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public List<RoleDTO> getRoleList() {
