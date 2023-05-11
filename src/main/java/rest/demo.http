@@ -1,0 +1,26 @@
+GET http://localhost:8080/CA2/api/info
+
+###
+POST http://localhost:8080/CA2/api/login
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "test123"
+}
+###
+GET http://localhost:8080/CA2/api/info/admin
+x-access-token:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY4MTg3NzY5MiwiaWF0IjoxNjgxODc1ODkyLCJpc3N1ZXIiOiJzZW1lc3RlcnN0YXJ0Y29kZS1kYXQzIiwicm9sZXMiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4ifQ.lN4PPmTtEfqarBHkCwvzBN-3fbmc_v6nLmBPp4Y0SD0
+
+###
+GET http://localhost:8080/CA2/api/jokes
+x-access-token:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY4MTg3NzY5MiwiaWF0IjoxNjgxODc1ODkyLCJpc3N1ZXIiOiJzZW1lc3RlcnN0YXJ0Y29kZS1kYXQzIiwicm9sZXMiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4ifQ.lN4PPmTtEfqarBHkCwvzBN-3fbmc_v6nLmBPp4Y0SD0
+
+###
+POST http://localhost:8080/CA2/api/weather
+Content-Type: application/json
+
+{
+  "city": "Copenhagen",
+   "country": "Denmark"
+}
