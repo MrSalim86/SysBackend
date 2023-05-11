@@ -1,47 +1,57 @@
 package dtos;
 
 public class CarApiDTO {
-    private int make_id;
-    private String make_name;
-    private int model_id;
-    private String model_name;
+    private int Make_ID;
+    private String Make_Name;
+    private int Model_ID;
+    private String Model_Name;
 
-    public CarApiDTO(int make_id, String make_name, int model_id, String model_name) {
-        this.make_id = make_id;
-        this.make_name = make_name;
-        this.model_id = model_id;
-        this.model_name = model_name;
+    public CarApiDTO(int Make_ID, String make_name, int model_id, String Model_Name) {
+        this.Make_ID = Make_ID;
+        this.Make_Name = make_name;
+        this.Model_ID = model_id;
+        this.Model_Name = Model_Name;
     }
 
-    public int getMake_id() {
-        return make_id;
+    public int getMake_ID() {
+        return Make_ID;
     }
 
-    public void setMake_id(int make_id) {
-        this.make_id = make_id;
+    public void setMake_ID(int make_ID) {
+        this.Make_ID = make_ID;
     }
 
-    public String getMake_name() {
-        return make_name;
+    public String getMake_Name() {
+        return Make_Name;
     }
 
-    public void setMake_name(String make_name) {
-        this.make_name = make_name;
+    public void setMake_Name(String make_Name) {
+        this.Make_Name = make_Name;
     }
 
-    public int getModel_id() {
-        return model_id;
+    public int getModel_ID() {
+        return Model_ID;
     }
 
-    public void setModel_id(int model_id) {
-        this.model_id = model_id;
+    public void setModel_ID(int model_ID) {
+        this.Model_ID = model_ID;
     }
 
-    public String getModel_name() {
-        return model_name;
+    public String getModel_Name() {
+        return Model_Name;
     }
 
-    public void setModel_name(String model_name) {
-        this.model_name = model_name;
+    public void setModel_Name(String model_Name) {
+        this.Model_Name = model_Name;
+    }
+
+    @Override
+    public String toString() {
+        return "CarApiDTO{" +
+                "make_id=" + Make_ID +
+                ", make_name='" + Make_Name + '\'' +
+                ", model_id=" + Model_ID +
+                ", model_name='" + Model_Name + '\'' +
+                '}';
     }
 }

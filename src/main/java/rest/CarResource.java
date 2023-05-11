@@ -28,7 +28,7 @@ public class CarResource {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public Response getCarDTOFromApi() throws IOException {
-        List<CarDTO> carDTOList = FACADE.getAllCarsFromApi();
+        List<CarApiDTO> carDTOList = FACADE.getAllCarsFromApi();
         return Response.ok().entity(carDTOList).build();
     }
 

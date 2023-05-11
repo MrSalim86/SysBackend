@@ -2,6 +2,7 @@ package facades;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
+import dtos.CarApiDTO;
 import dtos.CarDTO;
 import entities.Car;
 
@@ -133,20 +134,31 @@ public class CarFacade {
 
     }
 
-    public List<CarDTO> getAllCarsFromApi() throws IOException {
+    public List<CarApiDTO> getAllCarsFromApi() throws IOException {
         String apiUrl = "https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/mercedes?format=json";
         String json = fetchData(apiUrl);
         JsonObject root = JsonParser.parseString(json).getAsJsonObject();
         JsonArray results = root.getAsJsonArray("Results");
-       // List<CarDTO> carDTOs = new CarDTO();
-        Type carDTOListType = new TypeToken<ArrayList<CarDTO>>() {}.getType();
-        return GSON.fromJson(results, carDTOListType);
+        List<CarApiDTO> carDTOs = new ArrayList<>();
+        for(JsonElement result : results) {
+            CarApiDTO carDTO = GSON.fromJson(result, CarApiDTO.class);
+            carDTOs.add(carDTO);
+        }
+        //Type carDTOListType = new TypeToken<ArrayList<CarDTO>>() {}.getType();
+        //return GSON.fromJson(results, carDTOListType);
+        return carDTOs;
     }
 
     public static void main(String[] args) throws IOException {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
+
         CarFacade carFacade = CarFacade.getCarFacade(emf);
-        carFacade.createCar("Mercedes", "C200", 2019, "Copenhagen", 200000, "user");
+        List<CarApiDTO> list = carFacade.getAllCarsFromApi();
+        for(CarApiDTO carApiDTO : list) {
+            System.out.println(carApiDTO.toString());
+        }
+        //EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
+        //CarFacade carFacade = CarFacade.getCarFacade(emf);
+        //carFacade.createCar("Mercedes", "C200", 2019, "Copenhagen", 200000, "user");
         //CarFacade facade = CarFacade.getCarFacade(emf);
 //
         //// Test getAllCars
