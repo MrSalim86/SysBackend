@@ -74,9 +74,9 @@ public class CarFacade {
         }
     }
 
-    public Car createCar(String make, String model, double year, String location, double price, String username  ) {
+    public Car createCar(String make, String model, int year, int price,String user_name, int location_id  ) {
         EntityManager em = emf.createEntityManager();
-        Car car = new Car(make, model, year, location, price, username);
+        Car car = new Car(make, model, price, year,user_name, location_id);
         try {
             em.getTransaction().begin();
             em.persist(car);

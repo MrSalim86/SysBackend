@@ -17,75 +17,25 @@ public class Car {
     private String model;
 
     @Column(name = "year")
-    private Double year;
-
-    @Column(name = "location")
-    private String location;
+    private int year;
 
     @Column(name = "price")
-    private Double price;
+    private int price;
 
-    @Column(name = "username")
-    private String username;
+    @Column(name = "user_name")
+    private String user_name;
 
-    public Car() {
-    }
+    @Column(name = "location_id")
+    private Integer location_id;
 
-    public Car(String make, String model, Double year, String location, Double price, String username) {
+
+    public Car(String make, String model, int year, int price, String user_name, Integer location_id) {
         this.make = make;
         this.model = model;
         this.year = year;
-        this.location = location;
         this.price = price;
-        this.username = username;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public Double getYear() {
-        return year;
-    }
-
-    public void setYear(Double year) {
-        this.year = year;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public String getMake() {
-        return make;
-    }
-
-    public void setMake(String make) {
-        this.make = make;
+        this.user_name = user_name;
+        this.location_id = location_id;
     }
 
     public Integer getId() {
@@ -96,4 +46,51 @@ public class Car {
         this.id = id;
     }
 
+    public String getMake() {
+        return make;
+    }
+
+    public void setMake(String make) {
+        this.make = make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public String getUser_name() {
+        return user_name;
+    }
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
+    }
+
+    public Integer getLocation_id() {
+        return location_id;
+    }
+
+    public void setLocation_id(Integer location_id) {
+        this.location_id = location_id;
+    }
 }
