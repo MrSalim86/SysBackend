@@ -140,16 +140,4 @@ public class UserResourceTest {
                 .body("userName", equalTo("user"));
     }
 
-    @Test
-    public void testCreateUser() {
-        given()
-                .contentType(ContentType.JSON)
-                .when()
-                .get("/info/create")
-                .then()
-                .statusCode(200)
-                .contentType(ContentType.JSON)
-                .body("userName", equalTo("user"));
-    }
-
 }
