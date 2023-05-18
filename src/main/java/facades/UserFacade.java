@@ -4,6 +4,7 @@ import dtos.UserDTO;
 import entities.Role;
 import entities.User;
 import security.errorhandling.AuthenticationException;
+import utils.EMF_Creator;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -34,7 +35,7 @@ public class UserFacade {
         }
         return instance;
     }
-    private EntityManager getEntityManager() {
+    private static EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
@@ -52,9 +53,22 @@ public class UserFacade {
         return user;
     }
 
-    public UserDTO create(UserDTO udto){
+    public static UserDTO create(UserDTO udto){
         List<Role> roleList = udto.getRoleList().stream().map(r -> new Role(r.getRoleName()) ).collect(Collectors.toList());
         User u = new User(udto.getUserName(), udto.getPassword(),roleList);
+        EntityManager em = getEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.persist(u);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+        return new UserDTO(u);
+    }
+
+    public UserDTO create(String username, String password){
+        User u = new User(username, password);
         EntityManager em = getEntityManager();
         try {
             em.getTransaction().begin();
@@ -84,6 +98,13 @@ public class UserFacade {
         TypedQuery<User> query = em.createQuery("SELECT u FROM User u", User.class);
         List<User> persons = query.getResultList();
         return UserDTO.getDtos(persons);
+    }
+
+    public static void main(String[] args) {
+        EntityManagerFactory emf = EMF_Creator.createEntityManagerFactory();
+        UserFacade uf = getUserFacade(emf);
+        UserFacade.create(new UserDTO("Mo", "1234"));
+        System.out.println("Hello World");
     }
 
 

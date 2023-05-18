@@ -29,6 +29,10 @@ public class Booking {
         this.car_id = car_id;
     }
 
+    public Booking() {
+
+    }
+
     public Integer getCar_id() {
         return car_id;
     }

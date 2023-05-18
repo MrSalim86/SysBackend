@@ -25,17 +25,27 @@ public class Car {
     @Column(name = "user_name")
     private String user_name;
 
-    @Column(name = "location_id")
+    @Column(name = "location_id", nullable = true)
     private Integer location_id;
 
-
-    public Car(String make, String model, int year, int price, String user_name, Integer location_id) {
+    public Car(String make, String model, int year, int price, String user_name, int location_id) {
         this.make = make;
         this.model = model;
         this.year = year;
         this.price = price;
         this.user_name = user_name;
         this.location_id = location_id;
+    }
+
+    public Car(String make, String model, int year, int price) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.price = price;
+    }
+
+    public Car() {
+
     }
 
     public Integer getId() {
@@ -85,7 +95,6 @@ public class Car {
     public void setUser_name(String user_name) {
         this.user_name = user_name;
     }
-
     public Integer getLocation_id() {
         return location_id;
     }

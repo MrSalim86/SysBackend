@@ -2,11 +2,11 @@ package entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "address")
+@Table(name = "location")
 public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id", nullable = true)
     private Integer id;
 
     @Column(name = "ipaddress")
