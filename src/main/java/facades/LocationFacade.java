@@ -70,9 +70,9 @@ public class LocationFacade {
         }
     }
 
-    public Location createLocation(String ipaddress, String country) {
+    public Location createLocation(String ip, String country) {
         EntityManager em = emf.createEntityManager();
-        Location location = new Location(ipaddress, country);
+        Location location = new Location(ip, country);
         try {
             em.getTransaction().begin();
             em.persist(location);

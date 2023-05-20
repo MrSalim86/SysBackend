@@ -2,27 +2,27 @@ package entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "address")
+@Table(name = "location")
 public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "ipaddress")
-    private String ipaddress;
+    @Column(name = "ip")
+    private String ip;
 
     @Column(name = "country")
     private String country;
 
 
 
-    public Location(String ipaddress, String country) {
+    public Location(String ip, String country) {
     }
 
-    public Location(Integer id, String ipaddress, String country) {
+    public Location(Integer id, String ip, String country) {
         this.id = id;
-        this.ipaddress = ipaddress;
+        this.ip = ip;
         this.country = country;
 
     }
@@ -39,12 +39,12 @@ public class Location {
         this.id = id;
     }
 
-    public String getIpaddress() {
-        return ipaddress;
+    public String getIp() {
+        return ip;
     }
 
-    public void setIpaddress(String ipaddress) {
-        this.ipaddress = ipaddress;
+    public void setIp(String ip) {
+        this.ip = ip;
     }
 
     public String getCountry() {
