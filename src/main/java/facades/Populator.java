@@ -7,6 +7,7 @@ package facades;
 
 import dtos.RenameMeDTO;
 import dtos.UserDTO;
+import entities.Location;
 import entities.RenameMe;
 import javax.persistence.EntityManagerFactory;
 
@@ -27,6 +28,8 @@ public class Populator {
         User user = new User("user", "test123");
         UserFacade userFacade = UserFacade.getUserFacade(emf);
         userFacade.create(new UserDTO(user));
+        Location location = new Location("ipaddress", "country");
+        LocationFacade locationFacade = LocationFacade.getLocationFacade(emf);
     }
     
     public static void main(String[] args) {

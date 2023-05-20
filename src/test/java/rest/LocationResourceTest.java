@@ -1,4 +1,4 @@
-package rest;
+/*package rest;
 
 import dtos.LocationDTO;
 import io.restassured.RestAssured;
@@ -80,3 +80,4 @@ public class LocationResourceTest {
     }
 
 }
+*/

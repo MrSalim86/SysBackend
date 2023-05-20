@@ -28,3 +28,13 @@ x-Access-Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY4MTg3NzY5Miw
 ###
 POST http://localhost:8080/sysproject/api/location
 Content-Type: application/json
+
+
+###
+GET http://localhost:8080/sysproject/api/info/create
+Content-Type: application/json
+
+{
+  "username": "",
+  "password": ""
+}

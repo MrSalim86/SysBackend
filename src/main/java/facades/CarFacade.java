@@ -74,7 +74,7 @@ public class CarFacade {
         }
     }
 
-    public Car createCar(String make, String model, int year, int price,String user_name, int location_id  ) {
+    public Car createCar(String make, String model, int year, int price,String user_name, int location_id ) {
         EntityManager em = emf.createEntityManager();
         Car car = new Car(make, model, price, year,user_name, location_id);
         try {
@@ -151,15 +151,14 @@ public class CarFacade {
 
     public static void main(String[] args) throws IOException {
 
-        CarFacade carFacade = CarFacade.getCarFacade(emf);
-        List<CarApiDTO> list = carFacade.getAllCarsFromApi();
-        for(CarApiDTO carApiDTO : list) {
-            System.out.println(carApiDTO.toString());
-        }
-        //EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
         //CarFacade carFacade = CarFacade.getCarFacade(emf);
-        //carFacade.createCar("Mercedes", "C200", 2019, "Copenhagen", 200000, "user");
-        //CarFacade facade = CarFacade.getCarFacade(emf);
+        //List<CarApiDTO> list = carFacade.getAllCarsFromApi();
+        //for(CarApiDTO carApiDTO : list) {
+        // System.out.println(carApiDTO.toString());
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
+        CarFacade carFacade = CarFacade.getCarFacade(emf);
+        carFacade.addCar(new Car("Mercedes", "C200", 2000, 1500));
 //
         //// Test getAllCars
         //List<Car> cars = facade.getAllCars();
@@ -184,7 +183,5 @@ public class CarFacade {
         //emf.close();
 
     }
-
-
 }
 
